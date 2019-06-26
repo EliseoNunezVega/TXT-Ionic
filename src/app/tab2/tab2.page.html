@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Journals
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card id="formbody">
+
+ 
+  <form [formGroup]="form" (ngClick)="onSubmit()">
+        <ion-item>
+          <ion-label>Title</ion-label>
+          <ion-input type="text" formControlName="title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Author</ion-label>
+            <ion-input type="text" formControlName="author"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label id="entry">Entry</ion-label>
+          <ion-textarea formControlName="entry"></ion-textarea>
+        </ion-item>
+        <button ion-button type="button" [disabled]="!todo.valid">Submit</button>
+    </form>
+
+    </ion-card>  
+
+    <ion-card id="entries">
+      <ion-item>
+        <div *ngFor="let blog of blogs">
+            <h3>
+              {{blog}}
+            </h3> 
+        </div>
+
+      </ion-item>
+
+    </ion-card>
+</ion-content>
